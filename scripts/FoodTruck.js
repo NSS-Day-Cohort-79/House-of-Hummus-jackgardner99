@@ -1,7 +1,15 @@
 import { Sales } from "./Sales.js"
+import { Entrees } from "./Entrees.js"
+import { Veggies } from "./Vegetables.js"
+import { Sides } from "./SideDishes.js"
+import { SalesBtn } from "./SalesBtn.js"
 
-export const FoodTruck = () => {
-    const salesHTML = Sales()
+export const FoodTruck = async () => {
+    const entreeHTML = await Entrees()
+    const veggieHTML = await Veggies()
+    const sidesHTML = await Sides()
+    const buttonHTML = SalesBtn()
+    const salesHTML = await Sales()
 
     return `
         <header class="header">
@@ -10,8 +18,24 @@ export const FoodTruck = () => {
         </header>
 
         <article>
-            <button id="purchase">Purchase Combo</button>
+            <h2>Entrees</h2>
+            ${entreeHTML}
         </article>
+
+        <article>
+            <h2>Vegetables</h2>
+            ${veggieHTML}
+        </article>
+
+        <article>
+            <h2>Sides</h2>
+            ${sidesHTML}
+        </article>
+
+        <div class="button-container">
+            ${buttonHTML}
+        </div>
+        
 
         <article class="customerOrders">
             <h2>Monthly Sales</h2>

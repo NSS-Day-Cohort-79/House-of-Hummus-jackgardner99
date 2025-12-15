@@ -1,0 +1,28 @@
+Table Entrees {
+  id int [pk]
+  name varchar
+  price decimal
+}
+
+Table Vegetables {
+  id int [pk]
+  type varchar
+  price decimal
+}
+
+Table Sides{
+  id int [pk]
+  title varchar
+  price decimal
+}
+
+Table ComboOrders {
+  id int [pk]
+  entreeId int
+  vegetableId int
+  sidesId int
+}
+
+ref: Entrees.id - ComboOrders.entreeId
+ref: Vegetables.id - ComboOrders.vegetableId
+ref: Sides.id - ComboOrders.sidesId
